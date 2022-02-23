@@ -9,7 +9,7 @@ module "ec2_instance" {
   instance_count        = 3
   ami_id                = "ami-08ca3fed11864d6bb"
   instance_type         = "t2.micro"
-  key_pair_path         = "./operations-key.pub"
+  key_pair_path         = "./keys.public-key.pub"
   sg_ports              = [80, 443, 22]
   sg_ingress_cidr_block = ["0.0.0.0/0"]
   vpc_cidr_block        = "192.168.0.0/16"
