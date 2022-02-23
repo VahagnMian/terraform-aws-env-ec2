@@ -16,3 +16,4 @@ module "ec2_instance" {
   subnet_cidr_block     = "192.168.1.0/24"
 
 }
+```
