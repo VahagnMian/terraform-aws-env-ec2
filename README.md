@@ -1,5 +1,6 @@
 Terraform module thats will remove burden of creating underling infrastructure for EC2 instance
 
+```hcl
 module "ec2_instance" {
   source = "terraform-aws-modules/vpc/aws"
 
