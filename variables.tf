@@ -40,3 +40,7 @@ variable "open-cidr" {
 variable "subnet_cidr_block" {
   type = string
 }
+
+variable "key_name" {
+  type = string
+}
