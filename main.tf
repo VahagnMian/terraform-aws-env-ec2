@@ -6,4 +6,8 @@ resource "aws_instance" "ec2_instance" {
   key_name               = aws_key_pair.ec2-key-pair.key_name
   subnet_id              = aws_subnet.main.id
   vpc_security_group_ids = [aws_security_group.ec2-sg.id]
+
+  tags = {
+    Name = var.instance_name
+  }
 }

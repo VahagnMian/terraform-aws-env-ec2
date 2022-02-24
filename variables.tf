@@ -44,3 +44,8 @@ variable "subnet_cidr_block" {
 variable "key_name" {
   type = string
 }
+
+
+variable "instance_name" {
+  type = string
+}
