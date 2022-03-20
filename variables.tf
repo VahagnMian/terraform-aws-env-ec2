@@ -11,13 +11,12 @@ variable "instance_type" {
 }
 
 variable "key_pair_path" {
-  type    = string
-  default = null
+  type = string
 }
 
 variable "user_data_path" {
   type    = string
-  default = null
+  default = ""
 }
 
 variable "sg_ports" {
@@ -29,8 +28,7 @@ variable "sg_ingress_cidr_block" {
 }
 
 variable "vpc_cidr_block" {
-  type    = string
-  default = ""
+  type = string
 }
 
 variable "open-cidr" {
@@ -39,8 +37,7 @@ variable "open-cidr" {
 }
 
 variable "subnet_cidr_block" {
-  type    = string
-  default = ""
+  type = string
 }
 
 variable "key_name" {
@@ -50,14 +47,4 @@ variable "key_name" {
 
 variable "instance_name" {
   type = string
-}
-
-variable "kvpc_id" {
-  type    = string
-  default = ""
-}
-
-variable "subnet_id" {
-  type    = string
-  default = ""
 }

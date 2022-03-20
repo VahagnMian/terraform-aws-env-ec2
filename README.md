@@ -1,4 +1,4 @@
-Terraform module thats will remove burden of creating underling infrastructure for EC2 instance
+Terraform module which will remove the burden of creating the underling infrastructure for EC2 instance
 
 Usage Example
 

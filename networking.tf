@@ -1,6 +1,4 @@
 resource "aws_vpc" "vpc" {
-
-  count                = var.kvpc_id != "" ? 0 : 1
   cidr_block           = var.vpc_cidr_block
   enable_dns_hostnames = true
 
@@ -10,32 +8,19 @@ resource "aws_vpc" "vpc" {
 }
 
 resource "aws_subnet" "main" {
-  count      = var.subnet_id != "" ? 0 : 1
-  vpc_id     = var.kvpc_id != "" ? var.kvpc_id : aws_vpc.vpc[0].id
+  vpc_id     = aws_vpc.vpc.id
   cidr_block = var.subnet_cidr_block
 
 }
 
-data "aws_subnet" "data_subnet" {
-  #count = var.subnet_id != "" ? 1 : 0
-  id = var.subnet_id != "" ? var.subnet_id : aws_subnet.main[0].id
-}
-
-data "aws_vpc" "data_vpc" {
-  #count = var.vpc_id != "" ? 1 : 0
-  id = var.kvpc_id != "" ? var.kvpc_id : aws_vpc.vpc[0].id
-}
 
 resource "aws_internet_gateway" "main-dev-gateway" {
-  vpc_id = var.kvpc_id != "" ? var.kvpc_id : aws_vpc.vpc[0].id
-
-
+  vpc_id = aws_vpc.vpc.id
 }
 
 
 resource "aws_route_table" "rtb" {
-
-  vpc_id = var.kvpc_id != "" ? var.kvpc_id : aws_vpc.vpc[0].id
+  vpc_id = aws_vpc.vpc.id
 
   route {
     cidr_block = var.open-cidr
@@ -51,6 +36,6 @@ resource "aws_route_table" "rtb" {
 
 
 resource "aws_main_route_table_association" "rtb-vpc-association" {
-  vpc_id         = var.kvpc_id != "" ? var.kvpc_id : aws_vpc.vpc[0].id
+  vpc_id         = aws_vpc.vpc.id
   route_table_id = aws_route_table.rtb.id
 }
