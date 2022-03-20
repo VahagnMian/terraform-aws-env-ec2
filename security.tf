@@ -1,7 +1,7 @@
 resource "aws_security_group" "ec2-sg" {
-  name        = "sg_apache"
+  name        = "sg_${var.instance_name}"
   description = "allow ec2 required rules"
-  vpc_id      = aws_vpc.vpc.id
+  vpc_id      = var.kvpc_id != "" ? var.kvpc_id : aws_vpc.vpc[0].id
 
 
   dynamic "ingress" {

@@ -29,7 +29,8 @@ variable "sg_ingress_cidr_block" {
 }
 
 variable "vpc_cidr_block" {
-  type = string
+  type    = string
+  default = ""
 }
 
 variable "open-cidr" {
@@ -38,7 +39,8 @@ variable "open-cidr" {
 }
 
 variable "subnet_cidr_block" {
-  type = string
+  type    = string
+  default = ""
 }
 
 variable "key_name" {
@@ -48,4 +50,14 @@ variable "key_name" {
 
 variable "instance_name" {
   type = string
+}
+
+variable "kvpc_id" {
+  type    = string
+  default = ""
+}
+
+variable "subnet_id" {
+  type    = string
+  default = ""
 }
