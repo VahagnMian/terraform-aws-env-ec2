@@ -1,9 +1,8 @@
 resource "aws_security_group" "ec2-sg" {
 
-  #count       = var.sg_ingress_cidr_block != "" ? 1 : 0
   name        = "sg_${var.instance_name}"
   description = "allow ec2 required rules"
-  #vpc_id      = aws_vpc.vpc.id
+  vpc_id      = aws_vpc.vpc.id
 
 
   dynamic "ingress" {
