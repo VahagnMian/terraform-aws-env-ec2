@@ -53,3 +53,7 @@ variable "elastic_ip_id" {
   type    = string
   default = ""
 }
+
+variable "volume_size" {
+  type = string
+}

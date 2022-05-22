@@ -12,7 +12,7 @@ resource "aws_instance" "ec2_instance" {
 
   root_block_device {
     volume_type = "gp2"
-    volume_size =  50
+    volume_size =  var.volume_size
   }
 
 }
